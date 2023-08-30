@@ -11,4 +11,11 @@ userRouter.post("",
     userControllers.create
 )
 
+
+userRouter.get("/:id",
+    middlewares.ensureTokenValid,
+    middlewares.verifyUserPermission,
+    userControllers.retrieve
+)
+
 export default userRouter
