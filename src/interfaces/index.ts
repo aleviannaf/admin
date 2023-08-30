@@ -2,7 +2,9 @@ import {
     User,
     UserRequest,
     UserResult,
-    UserReturn
+    UserReturn,
+    UserRead,
+    UserPagination 
 } from "./user.interfaces"
 
 import {
@@ -14,5 +16,7 @@ export {
     UserRequest,
     UserResult,
     UserReturn,
-    SessionRequest
+    UserRead,
+    SessionRequest,
+    UserPagination 
 }
