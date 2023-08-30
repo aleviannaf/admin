@@ -11,6 +11,11 @@ userRouter.post("",
     userControllers.create
 )
 
+userRouter.get("",
+    middlewares.ensureTokenValid,
+    middlewares.verifyUserPermission,
+    userControllers.read
+)
 
 userRouter.get("/:id",
     middlewares.ensureTokenValid,
