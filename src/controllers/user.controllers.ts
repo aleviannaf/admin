@@ -11,7 +11,8 @@ const create = async (request: Request, response: Response ):Promise<Response> =
 }
 
 const retrieve = async (request: Request, response: Response ):Promise<Response> => {
-    const userData: UserReturn = await retrieveUserService(request.params.id)
+    const userData: UserReturn = await retrieveUserService(response.locals.decoded.sub)
+   
 
     return response.status(200).json(userData)
 }

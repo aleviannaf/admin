@@ -17,7 +17,7 @@ userRouter.get("",
     userControllers.read
 )
 
-userRouter.get("/:id",
+userRouter.get("/profile",
     middlewares.ensureTokenValid,
     middlewares.verifyUserPermission,
     userControllers.retrieve
