@@ -3,7 +3,8 @@ import {
     userCreateSchema,
     userWithoutPassword,
     userReadSchema,
-    userPaginationSchema
+    userPaginationSchema,
+    userUpdateSchema
 } from "./user.schemas"
 
 import {
@@ -16,5 +17,6 @@ export {
     userWithoutPassword,
     userReadSchema,
     userPaginationSchema,
+    userUpdateSchema,
     sessionSchema
 }
