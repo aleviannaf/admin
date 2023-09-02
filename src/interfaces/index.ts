@@ -4,7 +4,8 @@ import {
     UserResult,
     UserReturn,
     UserRead,
-    UserPagination 
+    UserPagination,
+    UserUpdateRequest
 } from "./user.interfaces"
 
 import {
@@ -17,6 +18,7 @@ export {
     UserResult,
     UserReturn,
     UserRead,
+    UserUpdateRequest,
+    UserPagination,
     SessionRequest,
-    UserPagination 
 }
