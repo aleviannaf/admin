@@ -1,7 +1,7 @@
 import { Router } from "express"
 import { userControllers } from "../controllers"
 import middlewares from "../middlewares"
-import { userCreateSchema } from "../schemas"
+import { userCreateSchema, userUpdateSchema } from "../schemas"
 
 const userRouter: Router = Router()
 
@@ -21,6 +21,13 @@ userRouter.get("/profile",
     middlewares.ensureTokenValid,
     middlewares.verifyUserPermission,
     userControllers.retrieve
+)
+
+userRouter.patch("/:id",
+    middlewares.ensureTokenValid,
+    middlewares.verifyUserPermission,
+    middlewares.ensureBody(userUpdateSchema),
+    userControllers.update
 )
 
 export default userRouter

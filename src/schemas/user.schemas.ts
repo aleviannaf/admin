@@ -28,10 +28,17 @@ const userPaginationSchema = z.object({
     data: userReadSchema
 })
 
+const userUpdateSchema = userSchema.omit({
+    id: true,
+    active: true,
+    admin: true
+}).partial()
+
 export {
     userSchema,
     userCreateSchema,
     userWithoutPassword,
     userReadSchema,
-    userPaginationSchema
+    userPaginationSchema,
+    userUpdateSchema 
 }
