@@ -1,8 +1,9 @@
 import { Request, Response } from "express"
-import { UserPagination, UserReturn } from "../interfaces"
+import { User, UserPagination, UserReturn } from "../interfaces"
 import createUserService from "../services/user/createUser.service"
 import retrieveUserService from "../services/user/retrieveUser.service"
 import readUsersService from "../services/user/readUsers.service"
+import updateUserService from "../services/user/updateUser.service"
 
 const create = async (request: Request, response: Response ):Promise<Response> => {
     const newUser: UserReturn = await createUserService(request.body)
@@ -13,7 +14,6 @@ const create = async (request: Request, response: Response ):Promise<Response> =
 const retrieve = async (request: Request, response: Response ):Promise<Response> => {
     const userData: UserReturn = await retrieveUserService(response.locals.decoded.sub)
    
-
     return response.status(200).json(userData)
 }
 
@@ -23,8 +23,15 @@ const read = async (request: Request, response: Response): Promise<Response> =>{
     return response.status(200).json(userList)
 }
 
+const update = async (request: Request, response: Response):Promise<Response> => {
+    const updateUser: UserReturn = await updateUserService(request.body, request.params.id)
+    
+    return response.status(200).json(updateUser)
+}
+
 export default {
     create,
     retrieve,
-    read 
+    read,
+    update
 }
