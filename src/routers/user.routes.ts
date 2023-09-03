@@ -26,6 +26,7 @@ userRouter.get("/profile",
 userRouter.patch("/:id",
     middlewares.ensureTokenValid,
     middlewares.verifyUserPermission,
+    middlewares.checkIdIfExist,
     middlewares.ensureBody(userUpdateSchema),
     userControllers.update
 )
@@ -33,6 +34,7 @@ userRouter.patch("/:id",
 userRouter.delete("/:id",
     middlewares.ensureTokenValid,
     middlewares.verifyUserPermission,
+    middlewares.checkIdIfExist,
     userControllers.softDelete
 )
 export default userRouter
