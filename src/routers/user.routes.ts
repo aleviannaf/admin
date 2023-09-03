@@ -41,6 +41,7 @@ userRouter.delete("/:id",
 userRouter.put("/:id/recover",
     middlewares.ensureTokenValid,
     middlewares.verifyUserPermission,
+    middlewares.checkIdIfExist,
     userControllers.recover
 )
 
