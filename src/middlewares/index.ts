@@ -3,6 +3,7 @@ import ensureBody from "./ensureBody.middleware"
 import verifyEmailExist from "./verifyEmailExist.middleware"
 import ensureTokenValid from "./ensureTokenValid.middleware"
 import verifyUserPermission from "./verifyUserPermission.middleware"
+import checkIdIfExist from "./checkIdIfExist.middleware"
 
 
 export default
@@ -11,5 +12,6 @@ export default
     ensureBody,
     verifyEmailExist,
     ensureTokenValid,
-    verifyUserPermission
+    verifyUserPermission,
+    checkIdIfExist
 }
