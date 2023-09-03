@@ -35,4 +35,11 @@ userRouter.delete("/:id",
     middlewares.verifyUserPermission,
     userControllers.softDelete
 )
+
+userRouter.put("/:id/recover",
+    middlewares.ensureTokenValid,
+    middlewares.verifyUserPermission,
+    userControllers.recover
+)
+
 export default userRouter
