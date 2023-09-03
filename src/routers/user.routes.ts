@@ -30,4 +30,9 @@ userRouter.patch("/:id",
     userControllers.update
 )
 
+userRouter.delete("/:id",
+    middlewares.ensureTokenValid,
+    middlewares.verifyUserPermission,
+    userControllers.softDelete
+)
 export default userRouter
