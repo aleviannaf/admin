@@ -4,6 +4,7 @@ import createUserService from "../services/user/createUser.service"
 import retrieveUserService from "../services/user/retrieveUser.service"
 import readUsersService from "../services/user/readUsers.service"
 import updateUserService from "../services/user/updateUser.service"
+import softDeleteService from "../services/user/softDelete.service"
 
 const create = async (request: Request, response: Response ):Promise<Response> => {
     const newUser: UserReturn = await createUserService(request.body)
@@ -29,9 +30,16 @@ const update = async (request: Request, response: Response):Promise<Response> =>
     return response.status(200).json(updateUser)
 }
 
+const softDelete = async (request: Request, response: Response):Promise<Response> => {
+    await  softDeleteService(request.params.id)
+    
+    return response.status(204).send()
+}
+
 export default {
     create,
     retrieve,
     read,
-    update
+    update,
+    softDelete
 }
