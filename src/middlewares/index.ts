@@ -4,6 +4,7 @@ import verifyEmailExist from "./verifyEmailExist.middleware"
 import ensureTokenValid from "./ensureTokenValid.middleware"
 import verifyUserPermission from "./verifyUserPermission.middleware"
 import checkIdIfExist from "./checkIdIfExist.middleware"
+import verifyAdmin from "./verifyAdmin.middleware"
 
 
 export default
@@ -13,5 +14,6 @@ export default
     verifyEmailExist,
     ensureTokenValid,
     verifyUserPermission,
-    checkIdIfExist
+    checkIdIfExist,
+    verifyAdmin
 }
